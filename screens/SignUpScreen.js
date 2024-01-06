@@ -47,13 +47,13 @@ export default function SignUpScreen() {
 
             <View
                 style={{
-                    flex: 2,
+                    flex: 3,
                     backgroundColor: 'white',
                     paddingHorizontal: 20,
                     borderTopLeftRadius: 30,
                     borderTopRightRadius: 30,
                     justifyContent: 'space-between',
-                    paddingBottom: 0,
+                    paddingBottom: 20,
                 }}
             >
                 <View style={{ marginTop: 10, flex: 1 }}>
@@ -124,8 +124,6 @@ export default function SignUpScreen() {
                 <TouchableOpacity style={styles.clearButton} onPress={clearForm}>
                     <Text style={styles.clearButtonText}>Clear</Text>
                 </TouchableOpacity>
-
-                {/* ... other components ... */}
             </View>
         </View>
     );
@@ -159,7 +157,7 @@ const styles = {
     },
     button: {
         backgroundColor: '#2ecc71',
-        padding: 15,
+        padding: 12,
         borderRadius: 10,
         marginTop: 10,
         alignItems: 'center',
@@ -170,7 +168,7 @@ const styles = {
     },
     clearButton: {
         backgroundColor: '#3498db',
-        padding: 15,
+        padding: 12,
         alignItems: 'center',
         borderRadius: 10,
         marginTop: 10,
