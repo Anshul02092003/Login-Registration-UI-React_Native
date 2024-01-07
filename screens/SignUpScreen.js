@@ -22,10 +22,21 @@ export default function SignUpScreen() {
         setDesignation('');
     };
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     const signUp = () => {
-        // Perform your sign-up logic here
-        Alert.alert('Success', 'You are registered!');
-        clearForm(); // Clear the form after successful registration
+        if (email.trim() === '' || fullName.trim() === '' || password.trim() === '' || gender.trim() === '' || designation.trim() === '') {
+            Alert.alert('Error', 'Please fill in all the fields');
+        } else if (!validateEmail(email)) {
+            Alert.alert('Error', 'Please enter a valid email address');
+        } else {
+            // Perform your sign-up logic here
+            Alert.alert('Success', `You are registered! Welcome, ${fullName}`);
+            clearForm(); // Clear the form after successful registration
+        }
     };
 
     return (
@@ -56,11 +67,11 @@ export default function SignUpScreen() {
                     paddingBottom: 20,
                 }}
             >
-                <View style={{ marginTop: 10, flex: 1 }}>
+                <View style={{ marginTop: 20, flex: 1 }}>
                     <Text style={styles.label}>Email Address</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Enter Email"
+                        placeholder="Enter your email"
                         value={email}
                         onChangeText={(text) => setEmail(text)}
                     />
@@ -68,7 +79,7 @@ export default function SignUpScreen() {
                     <Text style={styles.label}>Full Name</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Enter Name"
+                        placeholder="Enter your name"
                         value={fullName}
                         onChangeText={(text) => setFullName(text)}
                     />
@@ -76,7 +87,7 @@ export default function SignUpScreen() {
                     <Text style={styles.label}>Password</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Enter Password"
+                        placeholder="Enter your Password"
                         secureTextEntry
                         value={password}
                         onChangeText={(text) => setPassword(text)}
@@ -117,7 +128,6 @@ export default function SignUpScreen() {
                         <Picker.Item label="Student" value="Student" />
                     </Picker>
                 </View>
-
                 <TouchableOpacity style={styles.button} onPress={signUp}>
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
