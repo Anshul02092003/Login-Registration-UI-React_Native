@@ -47,24 +47,24 @@ export default function LoginScreen() {
       </SafeAreaView>
       <View style={{ borderTopLeftRadius: 50, borderTopRightRadius: 50 }} className="flex-1 bg-white px-8 pt-8">
         <View className="form space-y-2">
-          <Text className="text-gray-700 ml-4">Email Address</Text>
+          <Text className="text-gray-700 ml-2">Email Address</Text>
           <TextInput
-            className="p-3 bg-gray-100 text-gray-700 rounded-2xl mb-3"
+            className="p-2 bg-gray-100 text-gray-700 rounded-2xl mb-3"
             placeholder="Enter your email"
             value={email}
             onChangeText={(text) => setEmail(text)}
           />
-          <Text className="text-gray-700 ml-4">Password</Text>
+          <Text className="text-gray-700 ml-2">Password</Text>
           <TextInput
-            className="p-3 bg-gray-100 text-gray-700 rounded-2xl"
+            className="p-2 bg-gray-100 text-gray-700 rounded-2xl"
             secureTextEntry
             placeholder="Enter your password"
             value={password}
             onChangeText={(text) => setPassword(text)}
           />
-          <Text className="text-gray-700 ml-4">OTP</Text>
+          <Text className="text-gray-700 ml-2">OTP</Text>
           <TextInput
-            className="p-3 bg-gray-100 text-gray-700 rounded-2xl"
+            className="p-2 bg-gray-100 text-gray-700 rounded-2xl"
             placeholder="Enter your OTP"
             maxLength={6}
             value={otp}
@@ -76,8 +76,11 @@ export default function LoginScreen() {
           <TouchableOpacity onPress={handleLogin} className="py-3 bg-yellow-400 rounded-xl">
             <Text className="text-xl font-bold text-center text-gray-700">Login</Text>
           </TouchableOpacity>
+          <TouchableOpacity className="flex items-end">
+              <Text className="text-gray-700 mb-5">Forgot Password?</Text>
+          </TouchableOpacity>
         </View>
-        <Text className="text-xl text-gray-700 font-bold text-center py-2">Or</Text>
+        <Text className="text-xl text-gray-700 font-bold text-center py-0">Or</Text>
         <View className="flex-row justify-center space-x-12">
           <TouchableOpacity className="p-2 bg-gray-100 rounded-2xl">
             <Image source={require('../assets/icons/google.png')} className="w-10 h-10" />
